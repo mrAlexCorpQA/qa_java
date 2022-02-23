@@ -20,11 +20,11 @@ public class TestFelineParametrized {
             };
         }
 
-        private int a;
+        private int valueForTest;
         private int expected;
 
-        public FelineClassForTestWithParameters(int a, int expected) {
-            this.a = a;
+        public FelineClassForTestWithParameters(int valueForTest, int expected) {
+            this.valueForTest = valueForTest;
             this.expected = expected;
         }
 
@@ -32,7 +32,7 @@ public class TestFelineParametrized {
         @Test
         public void testFelineGetKittensWithParameters() {
             feline = new Feline();
-            Assert.assertEquals(expected, feline.getKittens(a));
+            Assert.assertEquals(expected, feline.getKittens(valueForTest));
         }
     }
 
