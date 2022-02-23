@@ -44,11 +44,14 @@ public class TestLionNoneParametrized {
 
     //Проверяется передаваемое исключение метода doesHaveMane класса Lion
     @Test
-    public void testLionDoesHaveManeException() throws Exception {
+    public void testLionDoesHaveManeException() {
+        Exception lionException = null;
         try {
             feline = new Feline();
             lion = new Lion("Другое", feline);
         } catch (Exception exception) {
+            lionException = exception;
+            Assert.assertNotNull(lionException);
             Assert.assertEquals("Используйте допустимые значения пола животного - самей или самка", exception.getMessage());
         }
     }
