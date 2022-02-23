@@ -42,18 +42,6 @@ public class TestLionNoneParametrized {
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
     }
 
-    //Проверяется исключение метода getFood класса Lion (замокирована зависимость)
-    @Test
-    public void testLionGetFoodException() {
-        try {
-            lion = new Lion("Самка", felineMock);
-            Mockito.when(felineMock.getFood("Хищник")).thenThrow(new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник"));
-            Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), lion.getFood());
-        } catch (Exception exception) {
-            Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
-        }
-    }
-
     //Проверяется передаваемое исключение метода doesHaveMane класса Lion
     @Test
     public void testLionDoesHaveManeException() throws Exception {

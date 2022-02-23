@@ -41,16 +41,4 @@ public class TestCat {
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 
-    //Проверяется исключение метода getFood класса Cat (замокирована зависимость)
-    @Test
-    public void testCatGetFoodException() {
-        try {
-            cat = new Cat(felineMock);
-            Mockito.when(felineMock.eatMeat()).thenThrow(new Exception("Неизвестный вид животного, используйте значение Травоядное или Хищник"));
-            Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
-        } catch (Exception exception) {
-            Assert.assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник", exception.getMessage());
-        }
-    }
-
 }
